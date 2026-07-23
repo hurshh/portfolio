@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { getPosts } from "@/lib/posts";
 import { getProjects } from "@/lib/projects";
 
+export const dynamic = "force-static";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const [projects, posts] = await Promise.all([getProjects(), getPosts()]);

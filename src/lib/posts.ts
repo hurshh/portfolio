@@ -70,7 +70,6 @@ export async function getPosts(): Promise<Post[]> {
   try {
     const response = await fetch(
       `https://dev.to/api/articles?username=${encodeURIComponent(username)}&per_page=100`,
-      { next: { revalidate: 1800 } },
     );
     if (!response.ok) throw new Error(`DEV.to returned ${response.status}`);
     const posts = ((await response.json()) as DevToArticle[]).map(normalize);
@@ -88,7 +87,6 @@ export async function getPost(slug: string): Promise<Post | undefined> {
   try {
     const response = await fetch(
       `https://dev.to/api/articles/${encodeURIComponent(process.env.DEVTO_USERNAME)}/${encodeURIComponent(slug)}`,
-      { next: { revalidate: 1800 } },
     );
     if (!response.ok) return post;
     return normalize((await response.json()) as DevToArticle);

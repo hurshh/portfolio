@@ -87,7 +87,7 @@ export async function getProjects(): Promise<Project[]> {
   try {
     const response = await fetch(
       `https://api.github.com/users/${encodeURIComponent(username)}/repos?sort=updated&per_page=100`,
-      { headers: headers(), next: { revalidate: 3600 } },
+      { headers: headers() },
     );
     if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
     const repos = (await response.json()) as GitHubRepo[];
@@ -110,7 +110,6 @@ export async function getProject(slug: string): Promise<Project | undefined> {
       `https://api.github.com/repos/${encodeURIComponent(process.env.GITHUB_USERNAME)}/${encodeURIComponent(slug)}/readme`,
       {
         headers: { ...headers(), Accept: "application/vnd.github.raw+json" },
-        next: { revalidate: 3600 },
       },
     );
     if (!response.ok) return project;
