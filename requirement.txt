@@ -1,0 +1,17 @@
+Reference 1:
+I like the hero typography and really awesome creative fonts. 
+
+Reference 2:
+I like the project cards but not the a lot of colors I want it to fetch readme from github and link to github .
+
+Reference 3:
+I want a blog section with cards about blogs I write and takes it to different blog page where it will present blog like medium style way.
+
+My vibe:
+Minimal, premium, sleek and light themed maybe a little not too corporate.
+
+Must-have sections:
+Home, Projects, Blog, About, Contact.
+
+Must-have functionality:
+Dynamic projects, dynamic blog, filters, search, tags, project detail pages.
